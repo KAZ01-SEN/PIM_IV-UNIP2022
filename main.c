@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 int main(){
 
-    int menu, close, endprog, senha, i, quant;
+    int menu=1, close=0, endprog=0, senha=0, i=0, quant=0, comorb=0;
 
     struct referencia{
 
@@ -88,10 +89,30 @@ CA[600];
                     fflush(stdin);
                     scanf("%[^\n]s", CA [i].inf6);
 
-                    printf("\n COMORBIDADES:");
-                    fflush(stdin);
-                    scanf("%[^\n]s", CA [i].inf7);
+                    do{
+                            printf("\n O PACIENTE POSSUI ALGUMA COMORBIDADE? \n");
+                            printf("\t\t\t       ----------------------------\n\n");
+                            printf(" 1 - SIM \n 2 - NAO");
+                            printf("\n\n");
+                            scanf("%d", &comorb);
+                            switch(comorb)
+                            {
+                            case 1:
+                                printf("\n COMORBIDADES:");
+                                fflush(stdin);
+                                scanf("%[^\n]s", CA [i].inf7);
+                                break;
 
+                            case 2:
+                                strcpy(CA [i].inf7,"N\\A");
+                                break;
+
+                            default:
+                                system("cls");
+                                break;
+                            }
+
+                    }while (comorb!=1&&comorb!=2);
 
                     printf("\n\n\t\t");
                     system("pause");
