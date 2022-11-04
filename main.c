@@ -39,7 +39,7 @@ CA[600];
                 system("cls");
 
                     printf("-----------------------------------------------------------------------------------\n");
-                    printf("\t\t\ ***** SISTEMA DE CADASTRAMENTO DE PACIENTES ***** \n\n");
+                    printf("\t\t  ***** SISTEMA DE CADASTRAMENTO DE PACIENTES ***** \n\n");
                     printf("-----------------------------------------------------------------------------------\n\n");
                     printf("\t\t\t    Seja bem vindo(a) %s\n", usuario);
                     printf("___________________________________________________________________________________\n");
