@@ -126,7 +126,7 @@ CA[600];
                 case 0:
                     system("cls");
                     printf("\n\n\t\t\t\t\t DESEJA ENCERRAR O PROGRAMA? \n\n");
-                    printf("\t\t\t\--------------------------------------------------------------\n\n");
+                    printf("\t\t\t --------------------------------------------------------------\n\n");
                     printf(" 1 - SIM \n 2 - NAO");
                     printf("\n\n");
                     scanf("%d", &endprog);
