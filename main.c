@@ -141,6 +141,10 @@ int main()
                         fflush(stdin);
                         scanf("%[^\n]s", lista[i].inf3);
 
+                        printf("\n CEP:");
+                        fflush(stdin);
+                        scanf("%[^\n]s", lista[i].inf4);
+
                         /*Implementação original da Data de Nascimento
                         printf("\n DATA/NASCIMENTO:");
                         fflush(stdin);
@@ -230,6 +234,7 @@ int main()
                         printf("\n CPF: %s\n", lista[i].inf1);
                         printf("\n TELEFONE: %s\n", lista[i].inf2);
                         printf("\n ENDEREÇO: %s\n", lista[i].inf3);
+                        printf("\n CEP: %s\n", lista[i].inf4);
                         //printf("\n DATA DE NASCIMENTO: %s\n", lista[i].inf4);
                         printf("\n DATA DE NASCIMENTO: %d/%d/%d\n", lista[i].dataD,lista[i].dataM,lista[i].dataA);
                         printf("\n IDADE: %d\n", checkIdade(lista[i].dataD,lista[i].dataM,lista[i].dataA,ct->tm_mday,ct->tm_mon+1,ct->tm_year+1900));
