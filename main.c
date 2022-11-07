@@ -44,6 +44,29 @@ bool checkDataErr (int dia, int mes, int ano, int anoatual) //Função para checar
     return (flag);
 }
 
+int checkIdade (int dia, int mes, int ano, int diaatual, int mesatual, int anoatual) //Função para calcular idade.
+{
+    int idade;
+    idade = anoatual - ano;
+    if (mesatual > mes)
+        {
+
+        }
+    else if (mesatual == mes)
+        {
+            if (diaatual < dia)
+                {
+                    idade--;
+                }
+        }
+
+    else
+        {
+            idade--;
+        }
+    return (idade);
+}
+
 int main()
 {
     setlocale(LC_ALL, "portuguese"); // permite uso de acentos (Pt-Br)
@@ -199,6 +222,8 @@ int main()
                     for(i=1; i<=quant; i++)
                     {
                         system("cls");
+                        ts = time(NULL);
+                        ct = localtime(&ts);
                         printf("\n\n\t\t\t\t      EXIBINDO CADASTRO %d\n", i);
                         printf("\t\t\t       --------------------------------\n\n");
                         printf(" NOME DO PACIENTE: %s\n", lista[i].inf0);
@@ -207,6 +232,7 @@ int main()
                         printf("\n ENDEREÇO: %s\n", lista[i].inf3);
                         //printf("\n DATA DE NASCIMENTO: %s\n", lista[i].inf4);
                         printf("\n DATA DE NASCIMENTO: %d/%d/%d\n", lista[i].dataD,lista[i].dataM,lista[i].dataA);
+                        printf("\n IDADE: %d\n", checkIdade(lista[i].dataD,lista[i].dataM,lista[i].dataA,ct->tm_mday,ct->tm_mon+1,ct->tm_year+1900));
                         printf("\n EMAIL: %s\n", lista[i].inf5);
                         printf("\n DATA DO DIAGNÓSTICO: %d/%d/%d\n", lista[i].diagD,lista[i].diagM,lista[i].diagA);
                         printf("\n COMORBIDADE: %s\n", lista[i].inf7);
