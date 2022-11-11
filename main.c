@@ -200,35 +200,30 @@ int main()
                         fprintf(pont_arq, "\n DATA DO DIAGNÓSTICO: %d/%d/%d\n", lista[i].diagD,lista[i].diagM,lista[i].diagA);
 
 
-                        if (checkIdade >= 65)
-                                {
-                                    strcpy(lista[i].inf7,"N\\A");
-                                    if(com_arq == NULL)
-                                    {
-                                        printf("ERRO NA ABERTURA DO ARQUIVO");
-                                        return 1;
-                                    }
 
-                                    com_arq= fopen("comorbidade.txt", "a");
-
-                                    fprintf(com_arq, "\n NOME DO PACIENTE: %s\n", lista[i].inf0);
-                                    fprintf(com_arq, "\n CEP: %s\n", lista[i].inf4);
-                                    fprintf(com_arq, "\n IDADE: %d\n", checkIdade(lista[i].dataD,lista[i].dataM,lista[i].dataA,ct->tm_mday,ct->tm_mon+1,ct->tm_year+1900));
-                                    fprintf(com_arq, "\n COMORBIDADE: %s\n", lista[i].inf7);
-                                    fprintf(com_arq, "\n\n------------------------------------------\n\n");
-
-                                }
 
                         do
                         {
+
                             printf("\n O PACIENTE POSSUI ALGUMA COMORBIDADE? \n");
                             printf("\t\t\t       ----------------------------\n\n");
                             printf(" 1 - SIM \n 2 - NAO");
                             printf("\n\n");
-                            scanf("%d", &comorb);
+
+                            if (checkIdade >= 65)
+                            {
+                                comorb = 1;
+                                scanf("%d", &comorb);
+                                comorb = 1;
+                            }
+                            else
+                            {
+                                scanf("%d", &comorb);
+                            }
                             switch(comorb)
                             {
                             case 1:
+
                                 printf("\n COMORBIDADES:");
                                 fflush(stdin);
                                 scanf("%[^\n]s", lista[i].inf7);
@@ -236,13 +231,15 @@ int main()
                                 fprintf(pont_arq, "\n COMORBIDADE: %s\n", lista[i].inf7);
                                 fclose (pont_arq);
 
+                                com_arq= fopen("comorbidade.txt", "a");
+
                                 fprintf(com_arq, "\n NOME DO PACIENTE: %s\n", lista[i].inf0);
                                 fprintf(com_arq, "\n CEP: %s\n", lista[i].inf4);
                                 fprintf(com_arq, "\n IDADE: %d\n", checkIdade(lista[i].dataD,lista[i].dataM,lista[i].dataA,ct->tm_mday,ct->tm_mon+1,ct->tm_year+1900));
-                                fprintf(com_arq, "\n COMORBIDADE: %s\n", lista[i].inf7);
                                 fprintf(com_arq, "\n\n------------------------------------------\n\n");
                                 fclose (com_arq);
                                 break;
+
 
                             case 2:
 
