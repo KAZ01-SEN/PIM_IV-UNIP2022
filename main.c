@@ -233,7 +233,7 @@ int main()
                             else if (checkIdade(lista[i].dataD,lista[i].dataM,lista[i].dataA,ct->tm_mday,ct->tm_mon+1,ct->tm_year+1900) >= 65 && comorb == 2)
                             {
 
-                                strcpy(lista[i].inf7,"N\\A");
+                                strcpy(lista[i].inf7,"Grupo de Risco");
 
                                 fprintf(pont_arq, "\n COMORBIDADE: %s\n", lista[i].inf7);
                                 fclose (pont_arq);
